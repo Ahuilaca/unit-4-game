@@ -1,12 +1,26 @@
+//Global variables
+//=============================================================================================
+
+//Cryatal Variables
+var redCrytalCounter = 0;
+var blueCrytalCounter = 0;
+var yellowCrytalCounter = 0;
+var greenCrytalCounter = 0;
+//functions
+//==============================================================================================
+
+
+//Main process
+//=============================================================================================
+
+
+
 //This array will display computers random number from 19-120. Buttons from 1-12
 //var buttonNumber = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 //var buttonNumber = Math.floor(Math.random() * 12) + 1;
 //var computerNumber = [" "];
 //var computerNumber = Math.floor(Math.random() * 12) + 1;
-var redCrytalCounter = "";
-var blueCrytalCounter = 0;
-var yellowCrytalCounter = 0;
-var greenCrytalCounter = 0;
+
 
 
 //This is the win/loss score card
