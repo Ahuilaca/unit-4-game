@@ -1,10 +1,30 @@
 //GLOBAL VARIABLE=============================================================================
 
 //Cryatal Variables
-var redCrytalCounter = 0;
-var blueCrytalCounter = 0;
-var yellowCrytalCounter = 0;
-var greenCrytalCounter = 0;
+     //These variables are one way to go (test later to see how the work):
+     //var redCrytalCounter = 0;
+     //var blueCrytalCounter = 0;
+     //var yellowCrytalCounter = 0;
+     //var greenCrytalCounter = 0;
+
+var crystal = {
+    red: {
+        name: "Red",
+        value: 0
+    },
+    blue: {
+        name: "Blue",
+        value: 0
+    },
+    yellow: {
+        name: "Yellow",
+        value: 0
+    },
+    green: {
+        name: "Green",
+        value: 0
+    }
+}
 
 //Scores current and target
 
