@@ -13,44 +13,60 @@ body {
 }
 
 #game-header {
-    background-color: orangered;
-    width: 200px;
-    height: 50px;
+    background-color: maroon;
+    color: white;
+    width: 100%;
+    height: 150px;
     line-height: 3;
-    font-size: 20px;
+    font-size: 50px;
+    text-align: center;
 }
 
 #rules {
     background-color:tan;
-    width: 350px;
-    height: 350px;
-    line-height: 1.6;
-    font-size: 14px;
-}
-#random-number {
-    background-color: green;
-    width: 200px;
-    height: 50px;
-    line-height: 3;
-    font-size: 20px;
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 500px;
+    font-size: 12px;
+    border: 10px solid white;
 }
 
-#wins-losses {
-    background-color: turquoise;
+.box {
+    display: inline-block;
     width: 200px;
-    font-size: 14px;
+    height: 100px;
+    padding: 15px;
+    border: 1px solid blue;        
+    background-color: maroon;
+    color: white;
 }
 
-.crystal-button {
+#score-boxes {
+    border: 2px solid black;
+
+}
+
+#red-crystal-button {
     padding: 25px;
     max-width: 75px;
     height: 75px;
 }
 
-#score-card {
-    background-color: darkgreen;
-    width: 200px;
-    height: 50px;
-    line-height: 3;
-    font-size: 20px;
+#blue-crystal-button {
+    padding: 25px;
+    max-width: 75px;
+    height: 75px;
 }
+
+#yellow-crystal-button {
+    padding: 25px;
+    max-width: 75px;
+    height: 75px;
+}
+
+#green-crystal-button {
+    padding: 25px;
+    max-width: 75px;
+    height: 75px;
+}
+

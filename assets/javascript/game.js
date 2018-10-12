@@ -3,13 +3,56 @@
 //var buttonNumber = Math.floor(Math.random() * 12) + 1;
 //var computerNumber = [" "];
 //var computerNumber = Math.floor(Math.random() * 12) + 1;
+var redCrytalCounter = "";
+var blueCrytalCounter = 0;
+var yellowCrytalCounter = 0;
+var greenCrytalCounter = 0;
 
-$(".crystal-button").on("click", function() {
-    alert("test");
-})
 
 //This is the win/loss score card
 
 //Here are the crystal buttons
+$("#red-crystal-button").on("click", function() {
+    alert("test");
+    redCrytalCounter++;
+    alert("test " + redCrytalCounter);
+})
+
+$("#blue-crystal-button").on("click", function() {
+    alert("test");
+    blueCrytalCounter++;
+    alert("test " + blueCrytalCounter + "test");
+})
+
+$("#yellow-crystal-button").on("click", function() {
+    alert("test");
+    yellowCrytalCounter++;
+    alert("test " + yellowCrytalCounter + "test");
+})
+
+$("#green-crystal-button").on("click", function() {
+    alert("test");
+    greenCrytalCounter++;
+    alert("test " + greenCrytalCounter + "test");
+})
+
 
 //Total score holder
+
+//Reset all values to start a new game without refreshing browser (from calculator video)
+//function resetNumbers() {
+    //redCrystalCounter = "";
+    //blueCrystalCounter = "";
+    //yellowCrystalCounter = "";
+    //greenCrystalCounter = "";
+    //redCrystalCounter = "";
+
+    //$("#red-crystal", "etc").empty();
+
+      //resetCalculator();
+//}
+
+//To reset numbers we need a function (from calculator video)
+//$(".clear").on("click", function( {
+    //resetCalculator();
+//}))
