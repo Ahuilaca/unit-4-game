@@ -1,31 +1,23 @@
-//Global variables
-//=============================================================================================
+//GLOBAL VARIABLE=============================================================================
 
 //Cryatal Variables
 var redCrytalCounter = 0;
 var blueCrytalCounter = 0;
 var yellowCrytalCounter = 0;
 var greenCrytalCounter = 0;
-//functions
-//==============================================================================================
+
+//Scores current and target
 
 
-//Main process
-//=============================================================================================
+//Wins and Losses
 
 
-
-//This array will display computers random number from 19-120. Buttons from 1-12
-//var buttonNumber = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-//var buttonNumber = Math.floor(Math.random() * 12) + 1;
-//var computerNumber = [" "];
-//var computerNumber = Math.floor(Math.random() * 12) + 1;
+//FUNCTIONS=====================================================================================
 
 
 
-//This is the win/loss score card
+//MAIN PROCESS===================================================================================
 
-//Here are the crystal buttons
 $("#red-crystal-button").on("click", function() {
     alert("test");
     redCrytalCounter++;
@@ -49,6 +41,20 @@ $("#green-crystal-button").on("click", function() {
     greenCrytalCounter++;
     alert("test " + greenCrytalCounter + "test");
 })
+
+
+//This array will display computers random number from 19-120. Buttons from 1-12
+//var buttonNumber = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+//var buttonNumber = Math.floor(Math.random() * 12) + 1;
+//var computerNumber = [" "];
+//var computerNumber = Math.floor(Math.random() * 12) + 1;
+
+
+
+//This is the win/loss score card
+
+//Here are the crystal buttons
+
 
 
 //Total score holder
