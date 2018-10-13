@@ -43,7 +43,7 @@ var getRandom = function(min, max) {
 //Starts and restarts the game
 var startGame = function () {
 
-    //Resent the current score
+    //Reset the current score
     currentScore = 0;
 
     //Set a new target score (between 19 and 120)
@@ -70,11 +70,44 @@ var startGame = function () {
 //This function is to generate a score with each button push on crystal
 var addValue = function(crystal) {
     currentScore = currentScore + crystal.value;
-
+    
+    //Change the html to reflet changes to the current score
     $("#player-score").html(currentScore);
 
-    console.log("Your Score: " + currentScore);
+    //Calls the checkWin function:
+    checkWin();
 
+    console.log("Your Score: " + currentScore);
+}
+
+//Check if player won or lost and reset the game
+var checkWin = function() {
+    //Check if current score is larger than current score:
+    if (currentScore > targetScore) {
+        alert("Looooooser!!");
+        console.log("You Lost");
+
+    //Add to loss counter:
+    lossCount++;
+
+    $("#player-losses").html(lossCount);
+
+    //Restart the game
+    startGame();
+    }
+
+    else if (currentScore == targetScore) {
+        alert("Your a Weeeeeeeenner!!");
+        console.log("You won");
+
+    //Add to win counter:
+    winCount++;
+
+    $("#player-wins").html(winCount);
+
+    //Restart the game
+    startGame();
+    }
 }
 
 
