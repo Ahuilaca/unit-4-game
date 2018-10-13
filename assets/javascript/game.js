@@ -1,11 +1,11 @@
 //GLOBAL VARIABLE=============================================================================
 
 //Cryatal Variables
-     //These variables are one way to go (test later to see how the work):
-     //var redCrytalCounter = 0;
-     //var blueCrytalCounter = 0;
-     //var yellowCrytalCounter = 0;
-     //var greenCrytalCounter = 0;
+//These variables are one way to go (test later to see how they work):
+//var redCrytalCounter = 0;
+//var blueCrytalCounter = 0;
+//var yellowCrytalCounter = 0;
+//var greenCrytalCounter = 0;
 
 var crystal = {
     red: {
@@ -27,47 +27,69 @@ var crystal = {
 }
 
 //Scores current and target
-
+var currentScore = 0;
+var targetScore = 0;
 
 //Wins and Losses
-
+var winCount = 0;
+var lossCount = 0;
 
 //FUNCTIONS=====================================================================================
+//Helper funtion for getting random numbers
+var getRandom = function(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
+//Starts and restarts the game
+var startGame = function () {
+
+    //Resent the current score
+    currentScore = 0;
+
+    //Set a new target score (between 19 and 120)
+    //targetScore = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+    targetScore = getRandom(19, 120);
+
+    //Set diffrent values for each of the crystals (between 1 and 12)
+    crystal.red.value    = getRandom(1, 12);
+    crystal.blue.value   = getRandom(1, 12);
+    crystal.yellow.value = getRandom(1, 12);
+    crystal.green.value  = getRandom(1, 12);
+
+    //Change the HTML to reflect all of these changes
+    
+
+    //testing console
+    console.log("--------------------------");
+    console.log("Target Score: " + targetScore);
+    console.log("Red: " + crystal.red.value + " | Blue: " + crystal.blue.value + " | Yellow: " + crystal.yellow.value + " |Green: " + crystal.green.value);
+    console.log("--------------------------");
+}
 
 
 //MAIN PROCESS===================================================================================
+//Starts game the first time:
+startGame();
 
-$("#red-crystal-button").on("click", function() {
+$("#red-button").on("click", function () {
     alert("test");
     redCrytalCounter++;
-    alert("test " + redCrytalCounter);
 })
 
-$("#blue-crystal-button").on("click", function() {
+$("#blue-button").on("click", function () {
     alert("test");
     blueCrytalCounter++;
-    alert("test " + blueCrytalCounter + "test");
 })
 
-$("#yellow-crystal-button").on("click", function() {
+$("#yellow-button").on("click", function () {
     alert("test");
     yellowCrytalCounter++;
-    alert("test " + yellowCrytalCounter + "test");
 })
 
-$("#green-crystal-button").on("click", function() {
+$("#green-button").on("click", function () {
     alert("test");
     greenCrytalCounter++;
-    alert("test " + greenCrytalCounter + "test");
 })
-
-
-//This array will display computers random number from 19-120. Buttons from 1-12
-//var buttonNumber = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
-//var buttonNumber = Math.floor(Math.random() * 12) + 1;
-//var computerNumber = [" "];
-//var computerNumber = Math.floor(Math.random() * 12) + 1;
 
 
 
