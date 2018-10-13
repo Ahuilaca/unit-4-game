@@ -57,7 +57,8 @@ var startGame = function () {
     crystal.green.value  = getRandom(1, 12);
 
     //Change the HTML to reflect all of these changes
-    
+    $("#random-number").html(targetScore);
+    $("#player-score").html(currentScore);
 
     //testing console
     console.log("--------------------------");
@@ -66,29 +67,39 @@ var startGame = function () {
     console.log("--------------------------");
 }
 
+//This function is to generate a score with each button push on crystal
+var addValue = function(crystal) {
+    currentScore = currentScore + crystal.value;
+
+    $("#player-score").html(currentScore);
+
+    console.log("Your Score: " + currentScore);
+
+}
+
 
 //MAIN PROCESS===================================================================================
 //Starts game the first time:
 startGame();
 
 $("#red-button").on("click", function () {
-    alert("test");
-    redCrytalCounter++;
+    addValue(crystal.red);
+    //redCrytalCounter++;
 })
 
 $("#blue-button").on("click", function () {
-    alert("test");
-    blueCrytalCounter++;
+    addValue(crystal.blue);
+    //blueCrytalCounter++;
 })
 
 $("#yellow-button").on("click", function () {
-    alert("test");
-    yellowCrytalCounter++;
+    addValue(crystal.yellow);
+    //yellowCrytalCounter++;
 })
 
 $("#green-button").on("click", function () {
-    alert("test");
-    greenCrytalCounter++;
+    addValue(crystal.green);
+    //greenCrytalCounter++;
 })
 
 
