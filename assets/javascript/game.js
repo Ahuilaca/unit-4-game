@@ -1,164 +1,106 @@
-//GLOBAL VARIABLE=============================================================================
 
-//Cryatal Variables
-//These variables are one way to go (test later to see how they work):
-//var redCrytalCounter = 0;
-//var blueCrytalCounter = 0;
-//var yellowCrytalCounter = 0;
-//var greenCrytalCounter = 0;
+$(document).ready(function () {
+    console.log("Let's Roll");
+});
 
-var crystal = {
-    red: {
-        name: "Red",
-        value: 0
-    },
-    blue: {
-        name: "Blue",
-        value: 0
-    },
-    yellow: {
-        name: "Yellow",
-        value: 0
-    },
-    green: {
-        name: "Green",
-        value: 0
-    }
-}
+//Crystal Variables
+var redCrystal = "";
+var blueCrystal = "";
+var yellowCrystal = "";
+var greenCrystal = "";
 
-//Scores current and target
-var currentScore = 0;
-var targetScore = 0;
+//Score variables
+var randomNumber = 0;
+var myScore = 0;
+var myWins = 0;
+var myLosses = 0;
 
-//Wins and Losses
-var winCount = 0;
-var lossCount = 0;
-
-//FUNCTIONS=====================================================================================
-//Helper funtion for getting random numbers
-var getRandom = function(min, max) {
+//RANDOM NUMBER GENERATOR
+var makeRandom = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//Starts and restarts the game
-var startGame = function () {
+//Random number between 19 and 120:
+randomNumber = makeRandom(19, 120);
 
-    //Reset the current score
-    currentScore = 0;
+//Random number between 1 and 12
+redCrystal = makeRandom(1, 12);
+blueCrystal = makeRandom(1, 12);
+yellowCrystal = makeRandom(1, 12);
+greenCrystal = makeRandom(1, 12);
 
-    //Set a new target score (between 19 and 120)
-    //targetScore = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-    targetScore = getRandom(19, 120);
+//To display random number on score card:
+$("#random-number").html("Random Number: " + randomNumber);
 
-    //Set diffrent values for each of the crystals (between 1 and 12)
-    crystal.red.value    = getRandom(1, 12);
-    crystal.blue.value   = getRandom(1, 12);
-    crystal.yellow.value = getRandom(1, 12);
-    crystal.green.value  = getRandom(1, 12);
-
-    //Change the HTML to reflect all of these changes
-    $("#random-number").html(targetScore);
-    $("#player-score").html(currentScore);
-
-    //testing console
-    console.log("--------------------------");
-    console.log("Target Score: " + targetScore);
-    console.log("Red: " + crystal.red.value + " | Blue: " + crystal.blue.value + " | Yellow: " + crystal.yellow.value + " |Green: " + crystal.green.value);
-    console.log("--------------------------");
-}
-
-//This function is to generate a score with each button push on crystal
-var addValue = function(crystal) {
-    currentScore = currentScore + crystal.value;
-    
-    //Change the html to reflet changes to the current score
-    $("#player-score").html(currentScore);
-
-    //Calls the checkWin function:
-    checkWin();
-
-    console.log("Your Score: " + currentScore);
-}
-
-//Check if player won or lost and reset the game
-var checkWin = function() {
-    //Check if current score is larger than current score:
-    if (currentScore > targetScore) {
-        alert("Looooooser!!");
-        console.log("You Lost");
-
-    //Add to loss counter:
-    lossCount++;
-
-    $("#player-losses").html(lossCount);
-
-    //Restart the game
-    startGame();
-    }
-
-    else if (currentScore == targetScore) {
-        alert("Your a Weeeeeeeenner!!");
-        console.log("You won");
-
-    //Add to win counter:
-    winCount++;
-
-    $("#player-wins").html(winCount);
-
-    //Restart the game
-    startGame();
-    }
-}
+//Console testing random number generator
+console.log("Target Score: " + randomNumber);
+console.log("Red: " + redCrystal + " | Blue: " + blueCrystal + " | Yellow: " + yellowCrystal + " |Green: " + greenCrystal);
 
 
-//MAIN PROCESS===================================================================================
+//JQuery
 //Starts game the first time:
-startGame();
 
 $("#red-button").on("click", function () {
-    addValue(crystal.red);
-    //redCrytalCounter++;
+    myScore = myScore + redCrystal;
+    $("#player-score").html(myScore);
+    console.log(myScore);
+    winLose();
 })
 
 $("#blue-button").on("click", function () {
-    addValue(crystal.blue);
-    //blueCrytalCounter++;
+    myScore = myScore + blueCrystal;
+    $("#player-score").html(myScore);
+    console.log(myScore);
+    winLose();
 })
 
 $("#yellow-button").on("click", function () {
-    addValue(crystal.yellow);
-    //yellowCrytalCounter++;
+    myScore = myScore + yellowCrystal;
+    $("#player-score").html(myScore);
+    console.log(myScore);
+    winLose();
 })
 
 $("#green-button").on("click", function () {
-    addValue(crystal.green);
-    //greenCrytalCounter++;
+    myScore = myScore + greenCrystal;
+    $("#player-score").html("My Score: " + myScore);
+    console.log(myScore);
+    winLose();
 })
 
 
+//Check if player won or lost and reset the game
+var winLose = function () {
 
-//This is the win/loss score card
+    if (myScore > randomNumber) {
+        alert("You are a Loooooooser!!");
+        console.log("You Lost");
+        myLosses++;
 
-//Here are the crystal buttons
+        $("#player-losses").html("Losses: " + myLosses);
+
+    }
+
+    //Restart the game
+    //startGame();
+    //}
+
+    else if (myScore == randomNumber) {
+        alert("Your a Weeeeeeeenner!!");
+        console.log("You won");
+        myWins++;
+
+        $("#player-wins").html("Wins: " + myWins);
+
+        //Restart the game
+        //startGame();
+    }
+}
 
 
 
-//Total score holder
 
-//Reset all values to start a new game without refreshing browser (from calculator video)
-//function resetNumbers() {
-    //redCrystalCounter = "";
-    //blueCrystalCounter = "";
-    //yellowCrystalCounter = "";
-    //greenCrystalCounter = "";
-    //redCrystalCounter = "";
 
-    //$("#red-crystal", "etc").empty();
 
-      //resetCalculator();
-//}
 
-//To reset numbers we need a function (from calculator video)
-//$(".clear").on("click", function( {
-    //resetCalculator();
-//}))
+
