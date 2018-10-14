@@ -83,19 +83,11 @@ var winLose = function () {
 
         $("#player-losses").html("Losses: " + myLosses);
 
-        myScore = 0;
-        randomNumber = 0;
-
-
-
     } else if (myScore == randomNumber) {
         alert("Your a Weeeiiinner!!");
         myWins++;
 
         $("#player-wins").html("Wins: " + myWins);
-
-        myScore = 0;
-        randomNumber = 0;
 
     }
 }

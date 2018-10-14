@@ -24,7 +24,10 @@ body {
 }
 
 #rules {
-    background-color:tan;
+    background-color:gray;
+    color: black;
+    font-weight: 700;
+    
     margin: 0 auto;
     padding: 15px;
     max-width: 500px;
