@@ -15,6 +15,11 @@ var myScore = 0;
 var myWins = 0;
 var myLosses = 0;
 
+var reset = function() {
+    myScore = 0;
+    randomNumber;
+}
+
 //RANDOM NUMBER GENERATOR
 var makeRandom = function (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -38,25 +43,25 @@ console.log("Red: " + redCrystal + " | Blue: " + blueCrystal + " | Yellow: " + y
 
 
 //JQuery
-//Starts game the first time:
+
 
 $("#red-button").on("click", function () {
     myScore = myScore + redCrystal;
-    $("#player-score").html(myScore);
+    $("#player-score").html("My Score: " + myScore);
     console.log(myScore);
     winLose();
 })
 
 $("#blue-button").on("click", function () {
     myScore = myScore + blueCrystal;
-    $("#player-score").html(myScore);
+    $("#player-score").html("My Score: " + myScore);
     console.log(myScore);
     winLose();
 })
 
 $("#yellow-button").on("click", function () {
     myScore = myScore + yellowCrystal;
-    $("#player-score").html(myScore);
+    $("#player-score").html("My Score: " + myScore);
     console.log(myScore);
     winLose();
 })
@@ -66,34 +71,32 @@ $("#green-button").on("click", function () {
     $("#player-score").html("My Score: " + myScore);
     console.log(myScore);
     winLose();
+   
 })
-
 
 //Check if player won or lost and reset the game
 var winLose = function () {
 
     if (myScore > randomNumber) {
         alert("You are a Loooooooser!!");
-        console.log("You Lost");
         myLosses++;
 
         $("#player-losses").html("Losses: " + myLosses);
 
-    }
+        myScore = 0;
+        randomNumber = 0;
 
-    //Restart the game
-    //startGame();
-    //}
 
-    else if (myScore == randomNumber) {
-        alert("Your a Weeeeeeeenner!!");
-        console.log("You won");
+
+    } else if (myScore == randomNumber) {
+        alert("Your a Weeeiiinner!!");
         myWins++;
 
         $("#player-wins").html("Wins: " + myWins);
 
-        //Restart the game
-        //startGame();
+        myScore = 0;
+        randomNumber = 0;
+
     }
 }
 
