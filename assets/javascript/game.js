@@ -15,9 +15,16 @@ var myScore = 0;
 var myWins = 0;
 var myLosses = 0;
 
-var reset = function() {
+var reset = function () {
+    randomNumber = makeRandom(19, 120);
+    $("#random-number").html("Random Number: " + randomNumber);
+    //Random number between 1 and 12
+    redCrystal = makeRandom(1, 12);
+    blueCrystal = makeRandom(1, 12);
+    yellowCrystal = makeRandom(1, 12);
+    greenCrystal = makeRandom(1, 12);
+    $("#player-score").html("My Score: ");
     myScore = 0;
-    randomNumber;
 }
 
 //RANDOM NUMBER GENERATOR
@@ -44,7 +51,7 @@ console.log("Red: " + redCrystal + " | Blue: " + blueCrystal + " | Yellow: " + y
 
 //JQuery
 
-
+reset();
 $("#red-button").on("click", function () {
     myScore = myScore + redCrystal;
     $("#player-score").html("My Score: " + myScore);
@@ -71,7 +78,6 @@ $("#green-button").on("click", function () {
     $("#player-score").html("My Score: " + myScore);
     console.log(myScore);
     winLose();
-   
 })
 
 //Check if player won or lost and reset the game
@@ -83,11 +89,15 @@ var winLose = function () {
 
         $("#player-losses").html("Losses: " + myLosses);
 
+        reset();
+
     } else if (myScore == randomNumber) {
         alert("Your a Weeeiiinner!!");
         myWins++;
 
         $("#player-wins").html("Wins: " + myWins);
+
+        reset();
 
     }
 }
