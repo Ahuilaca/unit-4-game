@@ -33,50 +33,52 @@ var makeRandom = function (min, max) {
 }
 
 //Random number between 19 and 120:
-randomNumber = makeRandom(19, 120);
-
-//Random number between 1 and 12
-redCrystal = makeRandom(1, 12);
-blueCrystal = makeRandom(1, 12);
-yellowCrystal = makeRandom(1, 12);
-greenCrystal = makeRandom(1, 12);
-
-//To display random number on score card:
-$("#random-number").html("Random Number: " + randomNumber);
-
-//Console testing random number generator
-console.log("Target Score: " + randomNumber);
-console.log("Red: " + redCrystal + " | Blue: " + blueCrystal + " | Yellow: " + yellowCrystal + " |Green: " + greenCrystal);
-
-
-//JQuery
-
 reset();
-$("#red-button").on("click", function () {
-    myScore = myScore + redCrystal;
-    $("#player-score").html("My Score: " + myScore);
-    console.log(myScore);
-    winLose();
-})
 
-$("#blue-button").on("click", function () {
-    myScore = myScore + blueCrystal;
-    $("#player-score").html("My Score: " + myScore);
-    console.log(myScore);
-    winLose();
-})
+// $("#red-button").on("click", function () {
+//     myScore = myScore + redCrystal;
+//     $("#player-score").html("My Score: " + myScore);
+//     winLose();
+// })
 
-$("#yellow-button").on("click", function () {
-    myScore = myScore + yellowCrystal;
-    $("#player-score").html("My Score: " + myScore);
-    console.log(myScore);
-    winLose();
-})
+// $("#blue-button").on("click", function () {
+//     myScore = myScore + blueCrystal;
+//     $("#player-score").html("My Score: " + myScore);
+//     winLose();
+// })
 
-$("#green-button").on("click", function () {
-    myScore = myScore + greenCrystal;
+// $("#yellow-button").on("click", function () {
+//     myScore = myScore + yellowCrystal;
+//     $("#player-score").html("My Score: " + myScore);
+//     winLose();
+// })
+
+// $("#green-button").on("click", function () {
+//     myScore = myScore + greenCrystal;
+//     $("#player-score").html("My Score: " + myScore);
+//     winLose();
+// })
+
+$(".button").on("click", function () {
+    var clicked = $(this).attr("id");
+    if (clicked === "red-button") {
+        myScore = myScore + redCrystal;
+
+    }
+    if (clicked === "blue-button") {
+        myScore = myScore + blueCrystal;
+
+    }
+    if (clicked === "yellow-button") {
+        myScore = myScore + yellowCrystal;
+
+    }
+    if (clicked === "green-button") {
+        myScore = myScore + greenCrystal;
+
+    }
+
     $("#player-score").html("My Score: " + myScore);
-    console.log(myScore);
     winLose();
 })
 
